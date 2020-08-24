@@ -3,8 +3,10 @@ package SecondProblem;
 	import java.io.File;
 	import java.io.IOException;
 	import java.text.SimpleDateFormat;
-	import java.util.HashMap;
-	import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 	import java.util.Scanner;
 
 	public class SecondProblem {
@@ -45,6 +47,7 @@ package SecondProblem;
 		     	File file=new File("C:\\TEST");
 				File fileList[]=file.listFiles();
 				Map<String,String>mp=new HashMap<String,String>(); 
+				List<String>al=new ArrayList<>();
 				for(int i=0;i<fileList.length;i++)
 				{ 
 					SimpleDateFormat sdf = new SimpleDateFormat("MMM");				
@@ -54,10 +57,11 @@ package SecondProblem;
 						{
 						if(entry.getKey().equalsIgnoreCase(inputMonth)) 
 						{
-					  System.out.println(entry.getValue());
+					  al.add(entry.getValue());
 						}				 
 						}		     
 				}		 
+				System.out.println(al.size());
 		}
 	
 }
