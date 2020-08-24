@@ -1,32 +1,33 @@
 package SecondProblem;
 
 	import java.io.File;
-	import java.io.IOException;
-	import java.text.SimpleDateFormat;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-	import java.util.Scanner;
 
 	public class SecondProblem {
 
 		public static void main(String[] args) throws IOException {
 
 			/* Data in the folders:(TEST is the folder Name)
-			 * dof (1).pdf
-			 * MRPT__.pdf
-			 * ONLYOFFICE Sample Document.docx
-			 * SAISHYAM_Resume.pdf
-			 * test.docx
-			 * transcripts.pdf
-			 * WhatsApp Image 2020-08-17 at 6.23.20 PM.jpeg 
+			 * Sample INPUT :
+			 * dof (1).pdf: 2020-08-17
+			 * MRPT__.pdf: 2020-07-24
+			 * ONLYOFFICE Sample Document.docx: 2020-07-06
+			 * SAISHYAM_Resume.pdf: 2020-07-06
+			 * test.docx: 2020-07-06
+			 * Transcripts.pdf: 2020-08-17
+			 * WhatsApp Image 2020-08-17 at 6.23.20 PM.jpeg: 2020-08-17			 * 
 			 * 
 			 * 
-			 *Sample INPUT : 
-			 *Enter the Monthe Name:
-			 *Reader Input: jul
-			 *OUTPUT:
+			 * OUTPUT:
 			 * jul-4
 			 * aug-3
 			 * 
