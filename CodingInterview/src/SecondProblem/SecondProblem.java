@@ -16,16 +16,10 @@ import java.util.Map;
 			/* Data in the folders:(TEST is the folder Name)
 			 * dof (1).pdf
 			 * MRPT__.pdf
-			 * dof (1).pdf
 			 * ONLYOFFICE Sample Document.docx
-			 * dof (1).pdf
 			 * SAISHYAM_Resume.pdf
-			 * dof (1).pdf
 			 * test.docx
-			 * dof (1).pdf
-			 * test.docx
-			 * Transcripts.pdf
-			 * test.docx
+			 * transcripts.pdf
 			 * WhatsApp Image 2020-08-17 at 6.23.20 PM.jpeg 
 			 * 
 			 * 
@@ -33,35 +27,32 @@ import java.util.Map;
 			 *Enter the Monthe Name:
 			 *Reader Input: jul
 			 *OUTPUT:
-			 * MRPT__.pdf
-			 *ONLYOFFICE Sample Document.docx
-			 *SAISHYAM_Resume.pdf
-			 *test.docx
-			 *test.docx
-			 *test.docx 
+			 * jul-4
+			 * aug-3
 			 * 
 			 */
-				System.out.println("Enter the Monthe Name:");
-				Scanner sc=new Scanner(System.in);				
-		     	String inputMonth = sc.nextLine();
-		     	File file=new File("C:\\TEST");
+				
+				File file=new File("C:\\TEST");
 				File fileList[]=file.listFiles();
-				Map<String,String>mp=new HashMap<String,String>(); 
+				Map<String,Integer>mp=new HashMap<String,Integer>(); 
 				List<String>al=new ArrayList<>();
 				for(int i=0;i<fileList.length;i++)
 				{ 
-					SimpleDateFormat sdf = new SimpleDateFormat("MMM");				
-					mp.put(sdf.format(fileList[i].lastModified()),fileList[i].getName().toString());		      
-			     
-					for(Map.Entry<String,String> entry:mp.entrySet())
+					SimpleDateFormat sdf = new SimpleDateFormat("MMMM");		
+					if(mp.containsKey(sdf.format(fileList[i].lastModified())))
+					{
+					
+				mp.put(sdf.format(fileList[i].lastModified()),mp.get(sdf.format(fileList[i].lastModified()))+1);
+					}
+					else
+					{
+				mp.put(sdf.format(fileList[i].lastModified()),1);
+					}
+				}
+					for(Map.Entry<String,Integer> entry:mp.entrySet())
 						{
-						if(entry.getKey().equalsIgnoreCase(inputMonth)) 
-						{
-					  al.add(entry.getValue());
-						}				 
+						System.out.println("Number of files in the folfer for the month of " + entry.getKey() + " are : " + entry.getValue());				 
 						}		     
-				}		 
-				System.out.println(al.size());
-		}
+			}
 	
 }
